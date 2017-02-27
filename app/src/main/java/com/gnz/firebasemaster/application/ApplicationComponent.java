@@ -1,9 +1,8 @@
 package com.gnz.firebasemaster.application;
 
 import com.gnz.firebasemaster.FirebaseModule;
-import com.gnz.firebasemaster.login.AuthController;
-import com.gnz.firebasemaster.login.LoginComponent;
-import com.gnz.firebasemaster.login.LoginModule;
+import com.gnz.firebasemaster.account.LoginComponent;
+import com.gnz.firebasemaster.account.LoginModule;
 import com.google.firebase.auth.FirebaseAuth;
 
 import javax.inject.Singleton;

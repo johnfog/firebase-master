@@ -177,6 +177,12 @@ configurations {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:24.2.1'
+    }
+}
+
 dependencies {
     compile project(':commons')
     testCompile project(':test-commons')
@@ -304,11 +310,12 @@ dependencies {
     androidTestCompile(test.espressoIdlingResource) {
         exclude module: 'espresso-core'
     }
+    compile 'com.android.support:support-v4:24.2.1'
 }
 
 // hot fix - android plugin 2.2.0 loses this task dependency and results in "no aar file found"
 tasks.whenTaskAdded { task ->
-    if(task.name == "prepareCoNetguruAndroidTestCommons"+project(':test-commons').android.defaultConfig.versionName.replace(".","")+"Library") {
+    if (task.name == "prepareCoNetguruAndroidTestCommons" + project(':test-commons').android.defaultConfig.versionName.replace(".", "") + "Library") {
         prepareCoNetguruAndroidTestCommons010Library.dependsOn project(':test-commons').tasks["assembleRelease"]
     }
 }

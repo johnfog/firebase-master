@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.login;
+package com.gnz.firebasemaster.account;
 
 import android.support.annotation.NonNull;
 

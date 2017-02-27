@@ -12,7 +12,7 @@
             android:name=".chat.MainActivity"
             android:theme="@style/MyAppBaseTheme" />
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".account.LoginSignupActivity"
             android:theme="@style/MyAppBaseTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account.LoginSignupActivity"></activity>
     </application>
 
 </manifest>

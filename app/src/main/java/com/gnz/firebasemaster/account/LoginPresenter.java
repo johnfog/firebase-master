@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.login;
+package com.gnz.firebasemaster.account;
 
 import android.support.annotation.NonNull;
 
@@ -7,8 +7,9 @@ import com.gnz.firebasemaster.common.mvp.RxPresenter;
 import javax.inject.Inject;
 
 import co.netguru.android.commons.di.ActivityScope;
+import co.netguru.android.commons.di.FragmentScope;
 
-@ActivityScope
+@FragmentScope
 public final class LoginPresenter extends RxPresenter<LoginContract.View> implements LoginContract.Presenter {
 
     private AuthController authController;

@@ -1,30 +1,35 @@
 package com.gnz.firebasemaster.common.ui;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.annotation.LayoutRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 
-import com.hannesdorfmann.mosby.mvp.MvpActivity;
-import com.hannesdorfmann.mosby.mvp.MvpPresenter;
-import com.hannesdorfmann.mosby.mvp.MvpView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
-public abstract class BaseActivity<V extends MvpView, P extends MvpPresenter<V>> extends MvpActivity<V, P> {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    private BaseActivityComponent component;
-
+    private Unbinder unbinder;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        component = createActivityComponent();
-        super.onCreate(savedInstanceState);
-
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        unbinder = ButterKnife.bind(this);
     }
 
-    @NonNull
-    protected abstract BaseActivityComponent createActivityComponent();
+    protected FragmentTransaction replaceFragment(int containerViewId, Fragment fragment, String tag) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(containerViewId, fragment, tag);
+        return ft;
+    }
 
-    @NonNull
-    public BaseActivityComponent getComponent() {
-        return component;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
     }
 
 }

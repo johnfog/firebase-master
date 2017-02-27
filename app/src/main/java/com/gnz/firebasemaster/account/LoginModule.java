@@ -1,8 +1,8 @@
-package com.gnz.firebasemaster.login;
+package com.gnz.firebasemaster.account;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import co.netguru.android.commons.di.ActivityScope;
+import co.netguru.android.commons.di.FragmentScope;
 import dagger.Module;
 import dagger.Provides;
 
@@ -10,7 +10,7 @@ import dagger.Provides;
 public class LoginModule {
 
 
-    @ActivityScope
+    @FragmentScope
     @Provides
     AuthController provideAuthController(FirebaseAuth firebaseAuth) {
         return new AuthController(firebaseAuth);
