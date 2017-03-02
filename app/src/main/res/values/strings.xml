@@ -8,5 +8,11 @@
     <string name="login">Log In</string>
     <string name="register">Register</string>
     <string name="error">Error</string>
+    <string name="name">Name</string>
+
+    <string name="signup_name_error">Incorrect name</string>
+    <string name="signup_email_error">Email not valid</string>
+    <string name="signup_password_error">Password length less than 6 characters</string>
+
 
 </resources>

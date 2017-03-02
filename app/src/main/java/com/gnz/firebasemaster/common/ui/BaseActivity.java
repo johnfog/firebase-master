@@ -18,6 +18,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind(this);
     }
 
+    protected FragmentTransaction replaceFragmentAddBackStack(int containerViewId, Fragment fragment, String tag) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction().addToBackStack(tag);
+        ft.replace(containerViewId, fragment, tag);
+        return ft;
+    }
+
     protected FragmentTransaction replaceFragment(int containerViewId, Fragment fragment, String tag) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(containerViewId, fragment, tag);

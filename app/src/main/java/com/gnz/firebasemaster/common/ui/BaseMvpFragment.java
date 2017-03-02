@@ -50,6 +50,12 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends MvpPresenter<
         }
     }
 
+    protected void showTextOnSnackbar(String message) {
+        if (getView() != null) {
+            Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

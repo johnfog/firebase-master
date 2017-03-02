@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.account;
+package com.gnz.firebasemaster.account.login;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.gnz.firebasemaster.R;
+import com.gnz.firebasemaster.account.LoginSignupActivity;
 import com.gnz.firebasemaster.application.App;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
 import com.gnz.firebasemaster.common.ui.BaseMvpFragment;
@@ -53,6 +54,11 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
         getPresenter().logInUser(emailEditText.getText().toString(), passwordEditText.getText().toString());
     }
 
+    @OnClick(R.id.signup_button)
+    void signUp() {
+        ((LoginSignupActivity) getActivity()).signUp();
+    }
+
     @Override
     public void showInvalidCredentials() {
         showTextOnSnackbar(R.string.error);
@@ -86,7 +92,7 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
     @Override
     protected BaseFragmentComponent createFragmentComponent() {
         final LoginComponent loginComponent =
-                App.getAppComponent(getActivity()).plus(new LoginModule());
+                App.getAppComponent(getActivity()).loginComponent();
         loginComponent.inject(this);
         return loginComponent;
     }

@@ -1,12 +1,12 @@
-package com.gnz.firebasemaster.account;
+package com.gnz.firebasemaster.account.login;
 
 import android.support.annotation.NonNull;
 
+import com.gnz.firebasemaster.account.AuthController;
 import com.gnz.firebasemaster.common.mvp.RxPresenter;
 
 import javax.inject.Inject;
 
-import co.netguru.android.commons.di.ActivityScope;
 import co.netguru.android.commons.di.FragmentScope;
 
 @FragmentScope

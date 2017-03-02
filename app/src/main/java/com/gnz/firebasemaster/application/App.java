@@ -29,6 +29,7 @@ public class App extends Application {
                 .builder()
                 .applicationModule(new ApplicationModule(this))
                 .firebaseModule(new FirebaseModule(this))
+                .authenticationModule(new AuthenticationModule())
                 .build();
     }
 

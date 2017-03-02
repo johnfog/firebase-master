@@ -1,14 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
     android:orientation="vertical"
-    tools:context="com.gnz.firebasemaster.account.LoginSignupActivity">
+    tools:context=".account.LoginSignupActivity">
 
-
-    <!-- For the purpose of the app, many attributes are not refactored-->
 
     <ImageView
         android:id="@+id/image_main_logo"
@@ -25,22 +22,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_M_M"
         android:layout_marginLeft="@dimen/margin_M_M"
         android:layout_marginRight="@dimen/margin_M_M"
-        android:orientation="vertical"
         android:layout_marginTop="@dimen/margin_M_M"
-        android:layout_marginBottom="@dimen/margin_M_M">
+        android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/name_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_S_M">
+
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/email_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email"/>
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -53,32 +63,19 @@
                 android:id="@+id/password_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="@string/password"/>
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
         </android.support.design.widget.TextInputLayout>
 
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_M_M"
+            android:background="@color/text_color"
+            android:text="Register"
+            android:textColor="@color/primary" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_M_M"
-        android:layout_marginRight="@dimen/margin_M_M"
-        android:layout_marginTop="20dp"
-        android:background="@color/text_color"
-        android:text="@string/login"
-        android:textColor="@color/primary" />
-
-    <Button
-        android:id="@+id/signup_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_M_M"
-        android:layout_marginRight="@dimen/margin_M_M"
-        android:layout_marginTop="8dp"
-        android:background="@color/text_color"
-        android:text="@string/register"
-        android:textColor="@color/primary" />
 
 </LinearLayout>

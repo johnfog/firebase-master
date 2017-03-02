@@ -21,6 +21,10 @@ public class AuthController {
         return RxFirebaseAuth.signInWithEmailAndPassword(firebaseAuth, email, password);
     }
 
+    public Observable<AuthResult> createUser(@NonNull String email, @NonNull String password) {
+        return RxFirebaseAuth.createUserWithEmailAndPassword(firebaseAuth, email, password);
+    }
+
     public FirebaseUser getCurrentUser() {
         return firebaseAuth.getCurrentUser();
     }
