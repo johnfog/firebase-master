@@ -83,7 +83,7 @@ public class SignupFragment extends BaseMvpFragment<SignupContract.View, SignupC
 
     @Override
     public void singInUser() {
-
+        showTextOnSnackbar("Registered");
     }
 
     @Override

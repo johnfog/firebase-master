@@ -127,3 +127,11 @@
 -keepclassmembers class * implements android.os.Parcelable {
     static ** CREATOR;
 }
+
+# Firebase Database
+
+-keepattributes Signature
+-keepclassmembers class com.gnz.firebasemaster.models.** {
+  *;
+}
+

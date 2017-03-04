@@ -27,9 +27,9 @@ public class App extends Application {
         // init dagger appComponent
         this.appComponent = DaggerApplicationComponent
                 .builder()
-                .applicationModule(new ApplicationModule(this))
-                .firebaseModule(new FirebaseModule(this))
-                .authenticationModule(new AuthenticationModule())
+                .applicationModule(new ApplicationModule(base))
+                .firebaseModule(new FirebaseModule(base))
+                .remoteResourcesModule(new RemoteResourcesModule())
                 .build();
     }
 
