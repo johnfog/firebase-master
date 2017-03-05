@@ -1,7 +1,6 @@
 package com.gnz.firebasemaster.account.signup;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.gnz.firebasemaster.common.mvp.RxPresenter;
 import com.gnz.firebasemaster.controllers.AuthController;
@@ -12,6 +11,8 @@ import com.gnz.firebasemaster.utils.DataValidator;
 import java.util.Date;
 
 import javax.inject.Inject;
+
+import rx.Observable;
 
 public class SignupPresenter extends RxPresenter<SignupContract.View> implements SignupContract.Presenter {
 
@@ -49,20 +50,18 @@ public class SignupPresenter extends RxPresenter<SignupContract.View> implements
         compositeSubscription.add(authController.createUser(email, password)
                 .doOnSubscribe(() -> getView().showProgress(true))
                 .doOnTerminate(() -> getView().showProgress(false))
+                .flatMap(authResult ->
+                        Observable.zip(
+                                Observable.just(authResult),
+                                remoteDatabaseController.createNewUser(authResult.getUser().getUid(), createUserModel(email, name)),
+                                (authResult1, avoid2) -> authResult1
+                        ))
                 .subscribe(
-                        authResult -> onAuthSuccessful(authResult.getUser().getUid(), email, name),
+                        authResult -> getView().singInUser(),
                         throwable -> getView().showSignUpError(throwable.getMessage()))
         );
 
 
-    }
-
-    private void onAuthSuccessful(@NonNull String id, @NonNull String email, @NonNull String name) {
-        compositeSubscription.add(remoteDatabaseController
-                .createNewUser(id, createUserModel(email, name))
-                .subscribe(aVoid -> getView().singInUser(),
-                        throwable -> Log.e("ERROR", throwable.getMessage())
-                ));
     }
 
     // TODO change avatar
