@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.account.LoginSignupActivity;
 import com.gnz.firebasemaster.application.App;
+import com.gnz.firebasemaster.chat.MainActivity;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
 import com.gnz.firebasemaster.common.ui.BaseMvpFragment;
 
@@ -66,7 +67,8 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
 
     @Override
     public void logUserIn() {
-        showTextOnSnackbar(R.string.login);
+        MainActivity.startActivity(getActivity());
+        getActivity().finish();
     }
 
     @Override

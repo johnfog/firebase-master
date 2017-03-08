@@ -254,7 +254,11 @@ dependencies {
     kapt proc.autoGson
     kapt proc.autoParcel
 
+    // RetroLambda
     kapt proc.retrolambda
+
+    // CircularImageView
+    compile libs.circularImageView
 
     // Stetho
     compile libs.stetho

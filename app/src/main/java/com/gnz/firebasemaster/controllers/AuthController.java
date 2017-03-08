@@ -2,6 +2,7 @@ package com.gnz.firebasemaster.controllers;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +24,10 @@ public class AuthController {
 
     public Observable<AuthResult> createUser(@NonNull String email, @NonNull String password) {
         return RxFirebaseAuth.createUserWithEmailAndPassword(firebaseAuth, email, password);
+    }
+
+    public Observable<FirebaseUser> observeAuthState() {
+        return RxFirebaseAuth.observeAuthState(firebaseAuth);
     }
 
     public FirebaseUser getCurrentUser() {

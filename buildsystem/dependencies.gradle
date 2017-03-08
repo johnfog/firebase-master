@@ -73,7 +73,8 @@ ext {
             firebaseDatabase        : "com.google.firebase:firebase-database:$firebaseVersion",
             firebaseAuth            : "com.google.firebase:firebase-auth:$firebaseVersion",
             firebaseStorage         : "com.google.firebase:firebase-storage:$firebaseVersion",
-            rxFirebase              : "com.kelvinapps:rxfirebase:0.0.15"
+            rxFirebase              : "com.kelvinapps:rxfirebase:0.0.15",
+            circularImageView       : "de.hdodenhof:circleimageview:2.1.0"
     ]
 
     proc = [

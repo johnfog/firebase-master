@@ -60,8 +60,6 @@ public class SignupPresenter extends RxPresenter<SignupContract.View> implements
                         authResult -> getView().singInUser(),
                         throwable -> getView().showSignUpError(throwable.getMessage()))
         );
-
-
     }
 
     // TODO change avatar

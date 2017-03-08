@@ -14,13 +14,17 @@ public class User {
     @Exclude
     public static final String OFFLINE = "offline";
 
-    public final String displayName;
-    public final String email;
-    public final String connection;
-    public final int avatarId;
-    public final long createdAt;
+    public String displayName;
+    public String email;
+    public String connection;
+    public int avatarId;
+    public long createdAt;
 
     private String mRecipientId;
+
+    public User() {
+
+    }
 
     public User(UserBuilder userBuilder) {
         displayName = userBuilder.displayName;
@@ -30,25 +34,10 @@ public class User {
         createdAt = userBuilder.createdAt;
     }
 
-    public String createUniqueChatRef(long createdAtCurrentUser, String currentUserEmail) {
-        String uniqueChatRef = "";
-        if (createdAtCurrentUser > getCreatedAt()) {
-            uniqueChatRef = cleanEmailAddress(currentUserEmail) + "-" + cleanEmailAddress(getUserEmail());
-        } else {
-
-            uniqueChatRef = cleanEmailAddress(getUserEmail()) + "-" + cleanEmailAddress(currentUserEmail);
-        }
-        return uniqueChatRef;
-    }
-
     public long getCreatedAt() {
         return createdAt;
     }
 
-    private String cleanEmailAddress(String email) {
-        //replace dot since firebase does not allow dot
-        return email.replace(".", "-");
-    }
 
     private String getUserEmail() {
         return email;

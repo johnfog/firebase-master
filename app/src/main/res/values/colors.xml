@@ -9,4 +9,7 @@
     <color name="text_color">#FFFFFF</color>
     <color name="text_color_icon">#212121</color>
 
+    <color name="online_status">#00FF00</color>
+    <color name="offline_status">#FF0000</color>
+
 </resources>

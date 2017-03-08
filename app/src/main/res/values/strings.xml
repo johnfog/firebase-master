@@ -14,5 +14,4 @@
     <string name="signup_email_error">Email not valid</string>
     <string name="signup_password_error">Password length less than 6 characters</string>
 
-
 </resources>

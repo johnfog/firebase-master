@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.gnz.firebasemaster.FirebaseModule;
+import com.google.firebase.FirebaseApp;
 
 public class App extends Application {
 
@@ -17,7 +18,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         appComponent.getDebugMetricsHelper().init(this);
-
+        initFirebase();
     }
 
     @Override
@@ -28,9 +29,13 @@ public class App extends Application {
         this.appComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(new ApplicationModule(base))
-                .firebaseModule(new FirebaseModule(base))
+                .firebaseModule(new FirebaseModule())
                 .remoteResourcesModule(new RemoteResourcesModule())
                 .build();
+    }
+
+    private void initFirebase() {
+        FirebaseApp.initializeApp(this);
     }
 
 }

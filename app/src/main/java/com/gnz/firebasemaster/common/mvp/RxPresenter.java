@@ -13,4 +13,9 @@ public abstract class RxPresenter<T extends MvpView> extends MvpNullObjectBasePr
         compositeSubscription = new CompositeSubscription();
     }
 
+    @Override
+    public void detachView(boolean retainInstance) {
+        super.detachView(retainInstance);
+        compositeSubscription.clear();
+    }
 }

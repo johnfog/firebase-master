@@ -1,8 +1,5 @@
 package com.gnz.firebasemaster;
 
-import android.content.Context;
-
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -14,11 +11,7 @@ import dagger.Provides;
 @Module
 public class FirebaseModule {
 
-    private final Context context;
-
-    public FirebaseModule(Context context) {
-        this.context = context;
-        FirebaseApp.initializeApp(context);
+    public FirebaseModule() {
     }
 
     @Provides
