@@ -18,7 +18,7 @@
         <activity
             android:name=".account.LoginSignupActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MyAppBaseTheme">
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

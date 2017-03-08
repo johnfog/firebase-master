@@ -77,6 +77,12 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
     }
 
     @Override
+    public void userIsLoggedIn() {
+        MainActivity.startActivity(getActivity());
+        getActivity().finish();
+    }
+
+    @Override
     public void disableLoginButton() {
 
     }

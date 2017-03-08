@@ -28,6 +28,20 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
     }
 
     @Override
+    public void attachView(LoginContract.View view) {
+        super.attachView(view);
+        compositeSubscription.add(
+                authController.observeAuthState()
+                        .subscribe(firebaseUser ->
+                        {
+                            if (firebaseUser != null) {
+                                getView().userIsLoggedIn();
+                            }
+                        })
+        );
+    }
+
+    @Override
     public void showLoginView() {
 
     }

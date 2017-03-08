@@ -12,7 +12,9 @@ import com.gnz.firebasemaster.common.ui.BaseActivity;
 public class LoginSignupActivity extends BaseActivity {
 
     public static void startActivity(Context context) {
-        context.startActivity(new Intent(context, LoginSignupActivity.class));
+        final Intent intent = new Intent(context, LoginSignupActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
     }
 
     @Override

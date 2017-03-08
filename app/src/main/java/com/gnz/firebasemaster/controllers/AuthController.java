@@ -34,4 +34,8 @@ public class AuthController {
         return firebaseAuth.getCurrentUser();
     }
 
+    public void signOut() {
+        firebaseAuth.signOut();
+    }
+
 }

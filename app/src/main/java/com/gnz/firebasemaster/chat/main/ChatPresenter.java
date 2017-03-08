@@ -45,13 +45,11 @@ public class ChatPresenter extends RxPresenter<ChatContract.View> implements Cha
         authStateSubscription =
                 authController.observeAuthState()
                         .doOnSubscribe(() -> getView().showProgress(true))
-                        .doOnTerminate(() -> {
-                            getView().showProgress(false);
-                            listenToDatabase();
-                            queryUsers();
-                        })
                         .subscribe(firebaseUser -> {
                             currentUserUid = firebaseUser.getUid();
+                            listenToDatabase();
+                            queryUsers();
+                            getView().showProgress(false);
                         }, throwable -> {
                             Log.e("ListenAuth", ChatFragment.TAG, throwable);
                             getView().showError(throwable.getMessage());

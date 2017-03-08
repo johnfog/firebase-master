@@ -17,6 +17,8 @@ public interface LoginContract {
 
         void showProgress(boolean show);
 
+        void userIsLoggedIn();
+
         void disableLoginButton();
 
         void enableLoginButton();

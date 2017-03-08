@@ -58,12 +58,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
     public void updateUser(int index, @NonNull User user) {
         items.set(index, user);
-        notifyItemChanged(index);
+        notifyDataSetChanged();
     }
 
     public void addUser(@NonNull User user) {
         items.add(user);
-        notifyItemChanged(items.size() - 1);
+        notifyDataSetChanged();
     }
 
     public void setCurrentUser(@NonNull User user) {
