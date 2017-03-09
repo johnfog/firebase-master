@@ -10,10 +10,13 @@ import android.widget.LinearLayout;
 
 import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.account.LoginSignupActivity;
+import com.gnz.firebasemaster.analytics.FirebaseEventController;
 import com.gnz.firebasemaster.application.App;
 import com.gnz.firebasemaster.chat.MainActivity;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
 import com.gnz.firebasemaster.common.ui.BaseMvpFragment;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -31,6 +34,9 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
 
     @BindView(R.id.login_linearLayout)
     LinearLayout loginLinearLayout;
+
+    @Inject
+    FirebaseEventController firebaseEventController;
 
     @Override
     public LoginContract.Presenter createPresenter() {
@@ -67,6 +73,7 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
 
     @Override
     public void logUserIn() {
+        firebaseEventController.logEventLogin();
         MainActivity.startActivity(getActivity());
         getActivity().finish();
     }

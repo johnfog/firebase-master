@@ -29,7 +29,7 @@ public class App extends Application {
         this.appComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(new ApplicationModule(base))
-                .firebaseModule(new FirebaseModule())
+                .firebaseModule(new FirebaseModule(base))
                 .remoteResourcesModule(new RemoteResourcesModule())
                 .build();
     }

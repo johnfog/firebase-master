@@ -9,10 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gnz.firebasemaster.R;
+import com.gnz.firebasemaster.analytics.FirebaseEventController;
 import com.gnz.firebasemaster.application.App;
 import com.gnz.firebasemaster.chat.MainActivity;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
 import com.gnz.firebasemaster.common.ui.BaseMvpFragment;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,6 +33,9 @@ public class SignupFragment extends BaseMvpFragment<SignupContract.View, SignupC
 
     @BindView(R.id.password_editText)
     TextInputEditText passwordEditText;
+
+    @Inject
+    FirebaseEventController firebaseEventController;
 
     public static SignupFragment newInstance() {
         final SignupFragment signupFragment = new SignupFragment();
@@ -84,6 +90,7 @@ public class SignupFragment extends BaseMvpFragment<SignupContract.View, SignupC
 
     @Override
     public void singInUser() {
+        firebaseEventController.logEventRegister();
         MainActivity.startActivity(getActivity());
         getActivity().finish();
     }

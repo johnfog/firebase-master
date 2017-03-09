@@ -16,7 +16,7 @@ import dagger.Provides;
 public class ApplicationModule {
 
     private final static String PREFERENCE_FILE_KEY = "com.gnz.firebasemaster";
-    private Context context;
+    private final Context context;
 
     public ApplicationModule(Context context) {
         this.context = context;

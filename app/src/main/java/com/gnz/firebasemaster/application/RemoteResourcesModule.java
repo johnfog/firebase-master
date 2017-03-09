@@ -1,7 +1,9 @@
 package com.gnz.firebasemaster.application;
 
+import com.gnz.firebasemaster.analytics.FirebaseEventController;
 import com.gnz.firebasemaster.controllers.AuthController;
 import com.gnz.firebasemaster.controllers.RemoteDatabaseController;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,6 +25,12 @@ public class RemoteResourcesModule {
     @Provides
     RemoteDatabaseController provideRemoteDatabaseController(FirebaseDatabase firebaseDatabase) {
         return new RemoteDatabaseController(firebaseDatabase);
+    }
+
+    @Singleton
+    @Provides
+    FirebaseEventController providesFirebaseEventController(FirebaseAnalytics firebaseAnalytics) {
+        return new FirebaseEventController(firebaseAnalytics);
     }
 
 }
