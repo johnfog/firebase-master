@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.controllers;
+package com.gnz.firebasemaster.auth;
 
 import android.support.annotation.NonNull;
 

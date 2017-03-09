@@ -3,8 +3,8 @@ package com.gnz.firebasemaster.account.signup;
 import android.support.annotation.NonNull;
 
 import com.gnz.firebasemaster.common.mvp.RxPresenter;
-import com.gnz.firebasemaster.controllers.AuthController;
-import com.gnz.firebasemaster.controllers.RemoteDatabaseController;
+import com.gnz.firebasemaster.auth.AuthController;
+import com.gnz.firebasemaster.remotedatabase.RemoteDatabaseController;
 import com.gnz.firebasemaster.models.User;
 import com.gnz.firebasemaster.utils.DataValidator;
 

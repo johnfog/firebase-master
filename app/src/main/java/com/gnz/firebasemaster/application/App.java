@@ -4,11 +4,19 @@ import android.app.Application;
 import android.content.Context;
 
 import com.gnz.firebasemaster.FirebaseModule;
+import com.gnz.firebasemaster.config.ConfigController;
 import com.google.firebase.FirebaseApp;
+
+import javax.inject.Inject;
 
 public class App extends Application {
 
+    private static final long TIME_OUT = 30;
+
     private ApplicationComponent appComponent;
+
+    @Inject
+    ConfigController configController;
 
     public static ApplicationComponent getAppComponent(Context context) {
         return ((App) context.getApplicationContext()).appComponent;
@@ -19,6 +27,7 @@ public class App extends Application {
         super.onCreate();
         appComponent.getDebugMetricsHelper().init(this);
         initFirebase();
+        initRemoteConfig();
     }
 
     @Override
@@ -36,6 +45,11 @@ public class App extends Application {
 
     private void initFirebase() {
         FirebaseApp.initializeApp(this);
+    }
+
+    private void initRemoteConfig() {
+        configController.fetch(TIME_OUT)
+                .subscribe();
     }
 
 }

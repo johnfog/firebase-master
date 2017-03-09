@@ -73,6 +73,8 @@ ext {
             firebaseDatabase        : "com.google.firebase:firebase-database:$firebaseVersion",
             firebaseAuth            : "com.google.firebase:firebase-auth:$firebaseVersion",
             firebaseStorage         : "com.google.firebase:firebase-storage:$firebaseVersion",
+            firebaseRemoteConfig    : "com.google.firebase:firebase-config:$firebaseVersion",
+            firebaseCrashReport     : "com.google.firebase:firebase-crash:$firebaseVersion",
             rxFirebase              : "com.kelvinapps:rxfirebase:0.0.15",
             circularImageView       : "de.hdodenhof:circleimageview:2.1.0"
     ]

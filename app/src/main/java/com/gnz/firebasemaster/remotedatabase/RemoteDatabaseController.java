@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.controllers;
+package com.gnz.firebasemaster.remotedatabase;
 
 
 import android.support.annotation.NonNull;

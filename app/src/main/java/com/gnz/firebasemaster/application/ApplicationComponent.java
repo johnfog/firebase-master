@@ -8,8 +8,8 @@ import com.gnz.firebasemaster.analytics.FirebaseEventController;
 import com.gnz.firebasemaster.chat.MainComponent;
 import com.gnz.firebasemaster.chat.main.ChatComponent;
 import com.gnz.firebasemaster.chat.main.ChatModule;
-import com.gnz.firebasemaster.controllers.AuthController;
-import com.gnz.firebasemaster.controllers.RemoteDatabaseController;
+import com.gnz.firebasemaster.auth.AuthController;
+import com.gnz.firebasemaster.remotedatabase.RemoteDatabaseController;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 

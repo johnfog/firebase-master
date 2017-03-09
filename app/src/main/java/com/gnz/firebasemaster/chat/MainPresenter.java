@@ -2,8 +2,8 @@ package com.gnz.firebasemaster.chat;
 
 
 import com.gnz.firebasemaster.common.mvp.RxPresenter;
-import com.gnz.firebasemaster.controllers.AuthController;
-import com.gnz.firebasemaster.controllers.RemoteDatabaseController;
+import com.gnz.firebasemaster.auth.AuthController;
+import com.gnz.firebasemaster.remotedatabase.RemoteDatabaseController;
 import com.gnz.firebasemaster.models.User;
 
 import javax.inject.Inject;
