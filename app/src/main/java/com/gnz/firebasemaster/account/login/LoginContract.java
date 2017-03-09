@@ -30,6 +30,8 @@ public interface LoginContract {
 
         void showLoginView();
 
+        void signUpEnable();
+
         void handleOauthCodeReceived(@NonNull String receivedCode);
 
         void logInUser(String email, String password);

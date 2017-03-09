@@ -201,6 +201,7 @@ dependencies {
     compile libs.firebaseAuth
     compile libs.firebaseStorage
     compile libs.firebaseRemoteConfig
+    compile libs.firebaseCloudMsg
     compile libs.firebaseCrashReport
 
     // RxFirebase

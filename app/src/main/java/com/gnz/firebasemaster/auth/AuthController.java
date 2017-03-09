@@ -2,10 +2,10 @@ package com.gnz.firebasemaster.auth;
 
 import android.support.annotation.NonNull;
 
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.kelvinapps.rxfirebase.RxFirebaseAuth;
 
 import rx.Observable;
@@ -28,6 +28,11 @@ public class AuthController {
 
     public Observable<FirebaseUser> observeAuthState() {
         return RxFirebaseAuth.observeAuthState(firebaseAuth);
+    }
+
+    // Device related
+    public String getToken() {
+        return FirebaseInstanceId.getInstance().getToken();
     }
 
     public FirebaseUser getCurrentUser() {

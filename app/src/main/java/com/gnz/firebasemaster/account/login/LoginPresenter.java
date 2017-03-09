@@ -43,12 +43,20 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
                             }
                         })
         );
-        getView().hideSignUpButton(!configController.signUpEnable());
+        compositeSubscription.add(configController.fetch(3600)
+                .subscribe(
+                        aVoid -> signUpEnable()
+                ));
     }
 
     @Override
     public void showLoginView() {
 
+    }
+
+    @Override
+    public void signUpEnable() {
+        getView().hideSignUpButton(configController.signUpEnable());
     }
 
     @Override

@@ -15,9 +15,6 @@ public class App extends Application {
 
     private ApplicationComponent appComponent;
 
-    @Inject
-    ConfigController configController;
-
     public static ApplicationComponent getAppComponent(Context context) {
         return ((App) context.getApplicationContext()).appComponent;
     }
@@ -27,7 +24,6 @@ public class App extends Application {
         super.onCreate();
         appComponent.getDebugMetricsHelper().init(this);
         initFirebase();
-        initRemoteConfig();
     }
 
     @Override
@@ -45,11 +41,6 @@ public class App extends Application {
 
     private void initFirebase() {
         FirebaseApp.initializeApp(this);
-    }
-
-    private void initRemoteConfig() {
-        configController.fetch(TIME_OUT)
-                .subscribe();
     }
 
 }

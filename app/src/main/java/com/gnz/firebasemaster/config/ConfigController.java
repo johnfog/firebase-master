@@ -4,15 +4,12 @@ package com.gnz.firebasemaster.config;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.kelvinapps.rxfirebase.RxHandler;
 
-import javax.inject.Inject;
-
 import rx.Observable;
 
 public class ConfigController {
 
     private final FirebaseRemoteConfig firebaseRemoteConfig;
 
-    @Inject
     public ConfigController(FirebaseRemoteConfig firebaseRemoteConfig) {
         this.firebaseRemoteConfig = firebaseRemoteConfig;
     }
