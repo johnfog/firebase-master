@@ -22,4 +22,8 @@ public class ConfigController {
         return firebaseRemoteConfig.getBoolean(Consts.SIGN_UP_ENABLE);
     }
 
+    public void activateFetch() {
+        firebaseRemoteConfig.activateFetched();
+    }
+
 }

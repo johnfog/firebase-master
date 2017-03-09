@@ -45,7 +45,10 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
         );
         compositeSubscription.add(configController.fetch(3600)
                 .subscribe(
-                        aVoid -> signUpEnable()
+                        aVoid -> {
+                            configController.activateFetch();
+                            signUpEnable();
+                        }
                 ));
     }
 
