@@ -19,6 +19,8 @@ public interface LoginContract {
 
         void userIsLoggedIn();
 
+        void hideSignUpButton(boolean hide);
+
         void disableLoginButton();
 
         void enableLoginButton();

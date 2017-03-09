@@ -3,10 +3,11 @@ package com.gnz.firebasemaster.account.login;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.gnz.firebasemaster.common.mvp.RxPresenter;
 import com.gnz.firebasemaster.auth.AuthController;
-import com.gnz.firebasemaster.remotedatabase.RemoteDatabaseController;
+import com.gnz.firebasemaster.common.mvp.RxPresenter;
+import com.gnz.firebasemaster.config.ConfigController;
 import com.gnz.firebasemaster.models.User;
+import com.gnz.firebasemaster.remotedatabase.RemoteDatabaseController;
 import com.google.firebase.auth.FirebaseUser;
 
 import javax.inject.Inject;
@@ -19,12 +20,15 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
 
     private final AuthController authController;
     private final RemoteDatabaseController remoteDatabaseController;
+    private final ConfigController configController;
 
     @Inject
-    LoginPresenter(AuthController authController, RemoteDatabaseController remoteDatabaseController) {
+    LoginPresenter(AuthController authController, RemoteDatabaseController remoteDatabaseController,
+                   ConfigController configController) {
         super();
         this.authController = authController;
         this.remoteDatabaseController = remoteDatabaseController;
+        this.configController = configController;
     }
 
     @Override
@@ -39,6 +43,7 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
                             }
                         })
         );
+        getView().hideSignUpButton(!configController.signUpEnable());
     }
 
     @Override

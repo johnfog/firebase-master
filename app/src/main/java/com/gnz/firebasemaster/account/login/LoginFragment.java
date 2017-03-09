@@ -6,6 +6,7 @@ import android.support.design.widget.TextInputEditText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.gnz.firebasemaster.R;
@@ -34,6 +35,9 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
 
     @BindView(R.id.login_linearLayout)
     LinearLayout loginLinearLayout;
+
+    @BindView(R.id.signup_button)
+    Button signUpButton;
 
     @Inject
     FirebaseEventController firebaseEventController;
@@ -87,6 +91,11 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
     public void userIsLoggedIn() {
         MainActivity.startActivity(getActivity());
         getActivity().finish();
+    }
+
+    @Override
+    public void hideSignUpButton(boolean hide) {
+        signUpButton.setVisibility(hide ? View.GONE : View.VISIBLE);
     }
 
     @Override
