@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.chat;
+package com.gnz.firebasemaster.chat.chatusers;
 
 
 import com.gnz.firebasemaster.common.mvp.RxPresenter;

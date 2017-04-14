@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.analytics.FirebaseEventController;
 import com.gnz.firebasemaster.application.App;
-import com.gnz.firebasemaster.chat.MainActivity;
+import com.gnz.firebasemaster.chat.chatusers.MainActivity;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
 import com.gnz.firebasemaster.common.ui.BaseMvpFragment;
 

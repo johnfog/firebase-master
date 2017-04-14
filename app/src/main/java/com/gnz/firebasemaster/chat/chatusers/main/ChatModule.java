@@ -1,5 +1,7 @@
-package com.gnz.firebasemaster.chat.main;
+package com.gnz.firebasemaster.chat.chatusers.main;
 
+
+import com.gnz.firebasemaster.chat.chatusers.main.adapter.UserClickListener;
 
 import dagger.Module;
 import dagger.Provides;

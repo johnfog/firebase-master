@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.chat;
+package com.gnz.firebasemaster.chat.chatusers;
 
 
 import android.support.annotation.NonNull;

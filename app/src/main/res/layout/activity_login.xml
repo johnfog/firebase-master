@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/margin_M_M"
-        android:layout_marginRight="@dimen/margin_M_M"
+        android:layout_marginLeft="@dimen/dimen_M_M"
+        android:layout_marginRight="@dimen/dimen_M_M"
         android:layout_marginTop="17dp"
         android:gravity="center"
         android:src="@drawable/main_logo" />
@@ -25,11 +25,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_M_M"
-        android:layout_marginRight="@dimen/margin_M_M"
+        android:layout_marginLeft="@dimen/dimen_M_M"
+        android:layout_marginRight="@dimen/dimen_M_M"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/margin_M_M"
-        android:layout_marginBottom="@dimen/margin_M_M">
+        android:layout_marginTop="@dimen/dimen_M_M"
+        android:layout_marginBottom="@dimen/dimen_M_M">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_S_M">
+            android:layout_marginTop="@dimen/dimen_S_M">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/password_editText"
@@ -63,8 +63,8 @@
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_M_M"
-        android:layout_marginRight="@dimen/margin_M_M"
+        android:layout_marginLeft="@dimen/dimen_M_M"
+        android:layout_marginRight="@dimen/dimen_M_M"
         android:layout_marginTop="20dp"
         android:background="@color/text_color"
         android:text="@string/login"
@@ -74,8 +74,8 @@
         android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_M_M"
-        android:layout_marginRight="@dimen/margin_M_M"
+        android:layout_marginLeft="@dimen/dimen_M_M"
+        android:layout_marginRight="@dimen/dimen_M_M"
         android:layout_marginTop="8dp"
         android:background="@color/text_color"
         android:text="@string/register"

@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         tools:text="Online"
         android:layout_alignTop="@+id/avatar_img"
-        android:paddingEnd="@dimen/margin_S_S"
+        android:paddingEnd="@dimen/dimen_S_S"
         android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

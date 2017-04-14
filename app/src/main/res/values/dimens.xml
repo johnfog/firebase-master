@@ -6,9 +6,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="margin_S_S">8dp</dimen>
-    <dimen name="margin_S_M">20dp</dimen>
-    <dimen name="margin_M_M">50dp</dimen>
-    <dimen name="margin_L_M">100dp</dimen>
+    <dimen name="dimen_S_XXS">4dp</dimen>
+    <dimen name="dimen_S_S">8dp</dimen>
+    <dimen name="dimen_S_M">20dp</dimen>
+    <dimen name="dimen_M_M">50dp</dimen>
+    <dimen name="dimen_L_M">100dp</dimen>
 
 </resources>

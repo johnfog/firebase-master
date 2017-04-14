@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.chat.main;
+package com.gnz.firebasemaster.chat.chatusers.main.adapter;
 
 
 import android.support.annotation.NonNull;
@@ -14,7 +14,6 @@ import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.models.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -112,7 +111,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         TextView connectionStatusTextView;
 
         private User user;
-        private UserClickListener listener;
 
         public UserViewHolder(View itemView, UserClickListener listener) {
             super(itemView);
@@ -129,6 +127,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
         @OnClick(R.id.user_view_layout)
         void onUserClick() {
+            currentUser = user;
             listener.onUserClick(user);
         }
     }

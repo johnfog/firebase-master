@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.chat.main;
+package com.gnz.firebasemaster.chat.chatusers.main.adapter;
 
 
 import com.gnz.firebasemaster.models.User;

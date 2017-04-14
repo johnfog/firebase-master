@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.chat;
+package com.gnz.firebasemaster.chat.chatusers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.account.LoginSignupActivity;
 import com.gnz.firebasemaster.application.App;
-import com.gnz.firebasemaster.chat.main.ChatFragment;
+import com.gnz.firebasemaster.chat.chatusers.main.ChatFragment;
 import com.gnz.firebasemaster.common.ui.BaseActivity;
 
 import butterknife.BindView;

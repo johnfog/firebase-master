@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster.chat.main;
+package com.gnz.firebasemaster.chat.chatusers.main;
 
 
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 
 import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.application.App;
+import com.gnz.firebasemaster.chat.chatusers.main.adapter.UserClickListener;
+import com.gnz.firebasemaster.chat.chatusers.main.adapter.UsersAdapter;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
 import com.gnz.firebasemaster.common.ui.BaseMvpFragment;
 import com.gnz.firebasemaster.models.User;
@@ -76,7 +78,7 @@ public class ChatFragment extends BaseMvpFragment<ChatContract.View, ChatContrac
 
     @Override
     public void onUserClick(User user) {
-
+        // TODO open chat activity
     }
 
     @Override

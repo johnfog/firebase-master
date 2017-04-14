@@ -11,5 +11,6 @@
 
     <color name="online_status">#00FF00</color>
     <color name="offline_status">#FF0000</color>
+    <color name="background_user_message">#FFFFFF</color>
 
 </resources>
