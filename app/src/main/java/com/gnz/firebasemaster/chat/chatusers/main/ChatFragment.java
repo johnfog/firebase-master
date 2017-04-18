@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 
 import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.application.App;
+import com.gnz.firebasemaster.chat.chatmessages.MessageActivity;
 import com.gnz.firebasemaster.chat.chatusers.main.adapter.UserClickListener;
 import com.gnz.firebasemaster.chat.chatusers.main.adapter.UsersAdapter;
 import com.gnz.firebasemaster.common.ui.BaseFragmentComponent;
@@ -36,6 +37,8 @@ public class ChatFragment extends BaseMvpFragment<ChatContract.View, ChatContrac
 
     @Inject
     UsersAdapter adapter;
+
+    User currentUser;
 
     public static ChatFragment newInstance() {
         final ChatFragment chatFragment = new ChatFragment();
@@ -78,7 +81,10 @@ public class ChatFragment extends BaseMvpFragment<ChatContract.View, ChatContrac
 
     @Override
     public void onUserClick(User user) {
-        // TODO open chat activity
+        String chatRef = User.createUniqueChatRef(user, currentUser.getCreatedAt(), currentUser.getEmail());
+
+        MessageActivity.startActivity(getContext(), user.getRecipientId(), currentUser.getRecipientId(), chatRef);
+
     }
 
     @Override
@@ -88,6 +94,7 @@ public class ChatFragment extends BaseMvpFragment<ChatContract.View, ChatContrac
 
     @Override
     public void setCurrentUser(User user) {
+        currentUser = user;
         adapter.setCurrentUser(user);
     }
 

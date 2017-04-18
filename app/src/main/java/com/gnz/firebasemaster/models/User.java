@@ -68,6 +68,22 @@ public class User {
         this.mRecipientId = recipientId;
     }
 
+    public static String createUniqueChatRef(User user, long createdAtCurrentUser, String currentUserEmail) {
+        String uniqueChatRef = "";
+        if (createdAtCurrentUser > user.getCreatedAt()) {
+            uniqueChatRef = cleanEmailAddress(currentUserEmail) + "-" + cleanEmailAddress(user.getUserEmail());
+        } else {
+
+            uniqueChatRef = cleanEmailAddress(user.getUserEmail()) + "-" + cleanEmailAddress(currentUserEmail);
+        }
+        return uniqueChatRef;
+    }
+
+    private static String cleanEmailAddress(String email) {
+        //replace dot with comma since firebase does not allow dot
+        return email.replace(".", "-");
+    }
+
     public static class UserBuilder {
         private final String displayName;
         private final String email;

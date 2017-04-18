@@ -13,4 +13,8 @@
     <color name="offline_status">#FF0000</color>
     <color name="background_user_message">#FFFFFF</color>
 
+    <color name="chat_text_color">#555555</color>
+
+    <color name="send_message_text_color">#FFFFFF</color>
+
 </resources>

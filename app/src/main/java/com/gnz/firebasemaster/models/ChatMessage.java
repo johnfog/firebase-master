@@ -1,15 +1,51 @@
 package com.gnz.firebasemaster.models;
 
 
-public interface ChatMessage {
+import com.google.firebase.database.Exclude;
 
-    String getMessage();
+public class ChatMessage {
 
-    void setRecipientOrSenderStatus(int recipientOrSenderStatus);
+    @Exclude
+    public static final int SENDER = 0;
+    @Exclude
+    public static final int RECIPIENT = 1;
 
-    String getRecipient();
+    private String message;
+    private String sender;
+    private String recipient;
 
-    String getSender();
+    private int mRecipientOrSenderStatus;
 
-    int getRecipientOrSenderStatus();
+    public ChatMessage() {
+    }
+
+    public ChatMessage(String message, String sender, String recipient) {
+        this.message = message;
+        this.recipient = recipient;
+        this.sender = sender;
+    }
+
+
+    public void setRecipientOrSenderStatus(int recipientOrSenderStatus) {
+        this.mRecipientOrSenderStatus = recipientOrSenderStatus;
+    }
+
+
+    public String getMessage() {
+        return message;
+    }
+
+    public String getRecipient(){
+        return recipient;
+    }
+
+    public String getSender(){
+        return sender;
+    }
+
+    @Exclude
+    public int getRecipientOrSenderStatus() {
+        return mRecipientOrSenderStatus;
+    }
+
 }

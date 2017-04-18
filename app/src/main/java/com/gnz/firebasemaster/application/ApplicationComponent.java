@@ -5,6 +5,8 @@ import com.gnz.firebasemaster.account.login.LoginComponent;
 import com.gnz.firebasemaster.account.signup.SignupComponent;
 import com.gnz.firebasemaster.account.signup.SignupModule;
 import com.gnz.firebasemaster.analytics.FirebaseEventController;
+import com.gnz.firebasemaster.chat.chatmessages.MessageComponent;
+import com.gnz.firebasemaster.chat.chatmessages.MessageContract;
 import com.gnz.firebasemaster.chat.chatusers.MainComponent;
 import com.gnz.firebasemaster.chat.chatusers.main.ChatComponent;
 import com.gnz.firebasemaster.chat.chatusers.main.ChatModule;
@@ -36,6 +38,8 @@ public interface ApplicationComponent {
     ChatComponent plus(ChatModule chatModule);
 
     MainComponent mainComponent();
+
+    MessageComponent messageComponent();
 
     FirebaseAuth getFirebaseAuth();
 
