@@ -120,9 +120,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         public void bind(User user) {
             this.user = user;
             displayNameTextView.setText(user.getDisplayName());
-            connectionStatusTextView.setTextColor(user.getConnection().equals(User.ONLINE) ?
-                    ContextCompat.getColor(itemView.getContext(), R.color.online_status) :
-                    ContextCompat.getColor(itemView.getContext(), R.color.offline_status));
+            if (user.getConnection().equals(User.ONLINE)) {
+                connectionStatusTextView.setTextColor(ContextCompat.getColor(itemView.getContext(), R.color.online_status));
+                connectionStatusTextView.setText(itemView.getContext().getString(R.string.online).toUpperCase());
+            } else {
+                connectionStatusTextView.setTextColor(ContextCompat.getColor(itemView.getContext(), R.color.offline_status));
+                connectionStatusTextView.setText(itemView.getContext().getString(R.string.offline).toUpperCase());
+            }
+            avatarImageView.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), R.drawable.headshot_7));
         }
 
         @OnClick(R.id.user_view_layout)

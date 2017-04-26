@@ -30,7 +30,7 @@
         android:id="@+id/connectin_status_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Online"
+        tools:text="@string/online"
         android:layout_alignTop="@+id/avatar_img"
         android:paddingEnd="@dimen/dimen_S_S"
         android:layout_alignParentEnd="true"/>
