@@ -24,6 +24,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import butterknife.OnTextChanged;
 
 
 public class MessageFragment extends BaseMvpFragment<MessageContract.View, MessageContract.Presenter> implements MessageContract.View {
@@ -103,10 +104,14 @@ public class MessageFragment extends BaseMvpFragment<MessageContract.View, Messa
         showTextOnSnackbar(msg);
     }
 
+    @OnTextChanged(R.id.message_editText)
+    void onStartWriting(CharSequence message) {
+        sendMessageButton.setEnabled(message.length() > 0);
+    }
+
     @OnClick(R.id.send_message_button)
     void sendMessage() {
         String senderMessage = messageEditText.getText().toString().trim();
-
         if (!senderMessage.isEmpty()) {
             final ChatMessage message = new ChatMessage(senderMessage, currentUserId, recipientId);
             getPresenter().sendMessage(message);

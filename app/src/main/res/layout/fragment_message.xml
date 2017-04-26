@@ -49,6 +49,7 @@
             android:layout_height="@dimen/dimen_M_S"
             android:text="@string/send_button"
             android:background="@color/accent"
+            android:enabled="false"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
