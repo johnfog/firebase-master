@@ -36,6 +36,8 @@ public interface LoginContract {
 
         void logInUser(String email, String password);
 
+        void fetchConfig();
+
     }
 
 }

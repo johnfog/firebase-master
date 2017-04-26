@@ -62,6 +62,7 @@ public class ChatPresenter extends RxPresenter<ChatContract.View> implements Cha
                         .subscribe(dataSnapshotRxFirebaseChildEvent -> {
                             if (dataSnapshotRxFirebaseChildEvent.getValue().getKey().equals(currentUserUid)) {
                                 final User currentUser = dataSnapshotRxFirebaseChildEvent.getValue().getValue(User.class);
+                                currentUser.setRecipientId(currentUserUid);
                                 getView().setCurrentUser(currentUser);
                             }
                         }, throwable -> {
@@ -80,13 +81,13 @@ public class ChatPresenter extends RxPresenter<ChatContract.View> implements Cha
 
                                         final String userUid = dataSnapshot.getKey();
                                         final User user = dataSnapshot.getValue(User.class);
+                                        user.setRecipientId(userUid);
 
                                         if (dataSnapshotRxFirebaseChildEvent.getEventType() == RxFirebaseChildEvent.EventType.ADDED) {
                                             if (dataSnapshot.getKey().equals(currentUserUid)) {
                                                 getView().setCurrentUser(user);
                                             } else {
                                                 final int index = usersKeyMap.size();
-                                                user.setRecipientId(userUid);
                                                 usersKeyMap.put(userUid, index);
                                                 getView().addUser(user);
                                             }

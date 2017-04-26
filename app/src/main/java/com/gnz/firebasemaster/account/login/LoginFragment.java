@@ -65,6 +65,13 @@ public class LoginFragment extends BaseMvpFragment<LoginContract.View, LoginCont
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getPresenter().signUpEnable();
+        getPresenter().fetchConfig();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPresenter().fetchConfig();
     }
 
     @OnClick(R.id.login_button)

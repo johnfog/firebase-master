@@ -127,7 +127,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
         @OnClick(R.id.user_view_layout)
         void onUserClick() {
-            currentUser = user;
             listener.onUserClick(user);
         }
     }

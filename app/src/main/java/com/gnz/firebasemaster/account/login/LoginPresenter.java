@@ -43,13 +43,6 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
                             }
                         })
         );
-        compositeSubscription.add(configController.fetch(3600)
-                .subscribe(
-                        aVoid -> {
-                            configController.activateFetch();
-                            signUpEnable();
-                        }
-                ));
     }
 
     @Override
@@ -59,7 +52,7 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
 
     @Override
     public void signUpEnable() {
-        getView().hideSignUpButton(configController.signUpEnable());
+        getView().hideSignUpButton(!configController.signUpEnable());
     }
 
     @Override
@@ -79,6 +72,17 @@ public final class LoginPresenter extends RxPresenter<LoginContract.View> implem
                                     setUserOnline(authResult.getUser());
                                 },
                                 throwable -> getView().showInvalidCredentials()));
+    }
+
+    @Override
+    public void fetchConfig() {
+        compositeSubscription.add(configController.fetch(3600)
+                .subscribe(
+                        aVoid -> {
+                            configController.activateFetch();
+                            signUpEnable();
+                        }
+                ));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.gnz.firebasemaster.application;
 
+import com.gnz.firebasemaster.R;
 import com.gnz.firebasemaster.analytics.FirebaseEventController;
 import com.gnz.firebasemaster.auth.AuthController;
 import com.gnz.firebasemaster.config.ConfigController;
@@ -38,7 +39,7 @@ public class RemoteResourcesModule {
     @Singleton
     @Provides
     ConfigController provideConfigController(FirebaseRemoteConfig firebaseRemoteConfig) {
-        return new ConfigController(firebaseRemoteConfig);
+        return new ConfigController(firebaseRemoteConfig, R.xml.remote_config_defaults);
     }
 
 }

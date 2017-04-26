@@ -7,6 +7,7 @@ import com.gnz.firebasemaster.common.mvp.RxPresenter;
 import com.gnz.firebasemaster.models.ChatMessage;
 import com.gnz.firebasemaster.remotedatabase.RemoteDatabaseController;
 import com.google.firebase.database.DataSnapshot;
+import com.kelvinapps.rxfirebase.RxFirebaseChildEvent;
 
 import javax.inject.Inject;
 
@@ -38,9 +39,11 @@ public class MessagePresenter extends RxPresenter<MessageContract.View> implemen
         compositeSubscription.add(
                 remoteDatabaseController.observeChildEventChat(chatRef, LIMIT)
                         .subscribe(
-                                dataSnapshotRxFirebaseChildEvent ->
-                                        populateMessages(dataSnapshotRxFirebaseChildEvent.getValue(), currentUserId)
-                                , throwable -> {
+                                dataSnapshotRxFirebaseChildEvent -> {
+                                    if (dataSnapshotRxFirebaseChildEvent.getEventType() == RxFirebaseChildEvent.EventType.ADDED) {
+                                        populateMessages(dataSnapshotRxFirebaseChildEvent.getValue(), currentUserId);
+                                    }
+                                }, throwable -> {
                                     Log.e(MessageFragment.TAG, throwable.getMessage());
                                     getView().showError(throwable.getMessage());
                                 }

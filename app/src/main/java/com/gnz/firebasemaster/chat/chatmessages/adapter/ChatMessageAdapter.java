@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ChatMessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.MessageViewHolder> {
 
     private List<ChatMessage> items;
 
@@ -45,11 +45,17 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     public void refillAdapter(ChatMessage chatMessage) {
         items.add(chatMessage);
-        notifyItemInserted(getItemCount() - 1);
+        notifyDataSetChanged();
+        //notifyItemInserted(getItemCount() - 1);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public int getItemViewType(int position) {
+        return items.get(position).getRecipientOrSenderStatus();
+    }
+
+    @Override
+    public MessageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
@@ -64,32 +70,14 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        switch (holder.getItemViewType()) {
-            case ChatMessage.SENDER:
-                ViewHolderSender viewHolderSender = (ViewHolderSender) holder;
-                configureSenderView(viewHolderSender, position);
-                break;
-            case ChatMessage.RECIPIENT:
-                ViewHolderRecipient viewHolderRecipient = (ViewHolderRecipient) holder;
-                configureRecipientView(viewHolderRecipient, position);
-                break;
-        }
-    }
-
-    private void configureSenderView(ViewHolderSender viewHolderSender, int position) {
-        ChatMessage senderFireMessage = items.get(position);
-        viewHolderSender.getSenderMessageTextView().setText(senderFireMessage.getMessage());
-    }
-
-    private void configureRecipientView(ViewHolderRecipient viewHolderRecipient, int position) {
-        ChatMessage recipientFireMessage = items.get(position);
-        viewHolderRecipient.getRecipientMessageTextView().setText(recipientFireMessage.getMessage());
+    public void onBindViewHolder(MessageViewHolder holder, int position) {
+        ChatMessage chatMessage = items.get(position);
+        holder.getMessageTextView().setText(chatMessage.getMessage());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
 
@@ -97,17 +85,26 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     /*ViewHolder for Sender*/
 
-    public class ViewHolderSender extends RecyclerView.ViewHolder {
+    public abstract class MessageViewHolder extends RecyclerView.ViewHolder {
+
+        public MessageViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+
+        public abstract TextView getMessageTextView();
+    }
+
+    public class ViewHolderSender extends MessageViewHolder {
 
         @BindView(R.id.text_view_sender_message)
         TextView mSenderMessageTextView;
 
         public ViewHolderSender(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
         }
 
-        public TextView getSenderMessageTextView() {
+        public TextView getMessageTextView() {
             return mSenderMessageTextView;
         }
 
@@ -115,17 +112,16 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
 
     /*ViewHolder for Recipient*/
-    public class ViewHolderRecipient extends RecyclerView.ViewHolder {
+    public class ViewHolderRecipient extends MessageViewHolder {
 
         @BindView(R.id.text_view_recipient_message)
         TextView mRecipientMessageTextView;
 
         public ViewHolderRecipient(View itemView) {
             super(itemView);
-
         }
 
-        public TextView getRecipientMessageTextView() {
+        public TextView getMessageTextView() {
             return mRecipientMessageTextView;
         }
 
