@@ -191,6 +191,7 @@ dependencies {
     // put entries from dependencies.gradle, for example:
 
     // Support
+    compile libs.support_v4
     compile libs.appCompat
     compile libs.recyclerView
     compile libs.design
@@ -318,7 +319,6 @@ dependencies {
     androidTestCompile(test.espressoIdlingResource) {
         exclude module: 'espresso-core'
     }
-    compile 'com.android.support:support-v4:24.2.1'
 }
 
 // hot fix - android plugin 2.2.0 loses this task dependency and results in "no aar file found"

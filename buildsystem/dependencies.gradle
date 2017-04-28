@@ -23,6 +23,7 @@ ext {
 
     libs = [
             kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            support_v4              : "com.android.support:support-v4:$supportLibraryVersion",
             appCompat               : "com.android.support:appcompat-v7:$supportLibraryVersion",
             design                  : "com.android.support:design:$supportLibraryVersion",
             recyclerView            : "com.android.support:recyclerview-v7:$supportLibraryVersion",
