@@ -3,11 +3,7 @@ package com.gnz.firebasemaster.application;
 import android.app.Application;
 import android.content.Context;
 
-import com.gnz.firebasemaster.FirebaseModule;
-import com.gnz.firebasemaster.config.ConfigController;
 import com.google.firebase.FirebaseApp;
-
-import javax.inject.Inject;
 
 public class App extends Application {
 

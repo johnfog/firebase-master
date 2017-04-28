@@ -1,4 +1,4 @@
-package com.gnz.firebasemaster;
+package com.gnz.firebasemaster.application;
 
 import android.content.Context;
 
