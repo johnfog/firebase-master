@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary"
     android:orientation="vertical"
-    tools:context=".account.LoginSignupActivity">
+    tools:context="co.netguru.firebasemaster.account.LoginSignupActivity">
 
 
     <ImageView

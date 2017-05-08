@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary"
     android:orientation="vertical"
-    tools:context="com.gnz.firebasemaster.account.LoginSignupActivity">
+    tools:context="com.gnz.firebasemaster.co.gnz.firebasemaster.account.LoginSignupActivity">
 
 
     <!-- For the purpose of the app, many attributes are not refactored-->

@@ -24,7 +24,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "com.gnz.firebasemaster"
+        applicationId "co.netguru.firebasemaster"
         minSdkVersion 18
         targetSdkVersion 24
         versionCode globalVersionCode
