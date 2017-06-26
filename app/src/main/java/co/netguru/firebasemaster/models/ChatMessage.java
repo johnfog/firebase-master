@@ -6,6 +6,8 @@ import com.google.firebase.database.Exclude;
 public class ChatMessage {
 
     @Exclude
+    public static final String MESSAGES = "messages";
+    @Exclude
     public static final int SENDER = 0;
     @Exclude
     public static final int RECIPIENT = 1;

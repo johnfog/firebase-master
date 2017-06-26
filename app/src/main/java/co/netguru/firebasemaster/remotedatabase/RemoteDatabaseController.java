@@ -53,6 +53,7 @@ public class RemoteDatabaseController {
 
     public Observable<RxFirebaseChildEvent<DataSnapshot>> observeChildEventChat(String chatRef, int limit) {
         final Query query = firebaseDatabase.getReference()
+                .child(ChatMessage.MESSAGES)
                 .child(chatRef)
                 .limitToFirst(limit);
         return RxFirebaseDatabase.observeChildEvent(query);
@@ -60,6 +61,7 @@ public class RemoteDatabaseController {
 
     public Observable<Void> sendMessageToUser(String chatRef, ChatMessage message) {
         final DatabaseReference databaseReference = firebaseDatabase.getReference()
+                .child(ChatMessage.MESSAGES)
                 .child(chatRef)
                 .push();
         return Observable.create(subscriber -> RxHandler.assignOnTask(subscriber, databaseReference.setValue(message)));
